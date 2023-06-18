@@ -1,7 +1,7 @@
-import { OPEN_SIDERBAR, CLOSE_SIDEBAR } from "../actions";
+import { OPEN_SIDEBAR, CLOSE_SIDEBAR } from "../actions";
 
 const sidebar_reducers = (state, action) => {
-  if (action.type === OPEN_SIDERBAR) {
+  if (action.type === OPEN_SIDEBAR) {
     return {
       ...state,
       isSidebarOpen: true,
