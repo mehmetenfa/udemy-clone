@@ -2,8 +2,12 @@ import React from 'react';
 import styled from "styled-components";
 import {MdMenu, MdShoppingCart} from "react-icons/md";
 import {Link} from 'react-router-dom';
+import { useSidebarContext } from '../context/sidebar_context';
+import { useCartContext } from '../context/cart_context';
 
 const Navbar = () => {
+  const {total_items} = useCartContext();
+  const {openSidebar} = useSidebarContext();
 
   return (
     <NavbarWrapper className = "bg-white flex">
@@ -16,9 +20,9 @@ const Navbar = () => {
           <div className='navbar-btns flex'>
             <Link to = "/cart" className='cart-btn'>
               <MdShoppingCart />
-              <span className='item-count-badge'></span>
+              <span className='item-count-badge'>{total_items}</span>
             </Link>
-            <button type = "button" className='sidebar-open-btn'>
+            <button type = "button" className='sidebar-open-btn' onClick={() => openSidebar()}>
               <MdMenu />
             </button>
           </div>
